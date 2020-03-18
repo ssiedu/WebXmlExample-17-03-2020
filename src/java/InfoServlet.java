@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +12,19 @@ public class InfoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out=response.getWriter();
+        //reading the context-parameters 
+        ServletContext context=getServletContext();
+        //reading the init-parameters defined for InfoServlet
+        ServletConfig config=getServletConfig();
+        String cname=context.getInitParameter("company-name");
+        String admin=config.getInitParameter("admin-name");
+        String mobile=config.getInitParameter("admin-mobile");
         out.println("<html>");
         out.println("<body>");
+        out.println("<h2>"+cname+"</h3>");
+
         out.println("<h3>Welcome From InfoServlet</h3>");
+        out.println("<h4>For Any Query Contact : "+admin+" @ "+mobile+"</h4>");
         out.println("<h5><a href=index.jsp>Home</a></h5>");
         out.println("</body>");
         out.println("</html>");

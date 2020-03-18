@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    
+    <context-param>
+        <param-name>company-name</param-name>
+        <param-value>Xyz Pvt. Ltd</param-value>
+    </context-param>
+    <context-param>
+        <param-name>head-office</param-name>
+        <param-value>London</param-value>
+    </context-param>
+    
     <servlet>
         <servlet-name>InfoServlet</servlet-name>
         <servlet-class>InfoServlet</servlet-class>
+        <init-param>
+            <param-name>admin-name</param-name>
+            <param-value>Smith</param-value>
+        </init-param>
+        <init-param>
+            <param-name>admin-mobile</param-name>
+            <param-value>5656545454</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>MeetingInformation</servlet-name>
         <servlet-class>MeetingInformation</servlet-class>
+        <init-param>
+            <param-name>meeting-date</param-name>
+            <param-value>22-Apr-2020</param-value>
+        </init-param>
+        <init-param>
+            <param-name>meeting-venue</param-name>
+            <param-value>Mumbai</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>InfoServlet</servlet-name>
